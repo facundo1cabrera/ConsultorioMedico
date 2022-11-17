@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @model ConsultorioMedico.Models.EstudiosViewModel
+}
+<h1 style="margin-bottom: 40px;">Estudios disponibles</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre del estudio</th>
+            <th>Nombre del paciente</th>
+            <th>Apellido del paciente</th>
+            <th>Resultado</th>
+            
+            <th>Fecha y hora</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var estudio in Model.Estudios)
+        {
+            <tr>
+                <td>@estudio.Nombre</td>
+                <td>@estudio.Paciente.Nombre</td>
+                <td>@estudio.Paciente.Apellido</td>
+                <td>@estudio.Resultado</td>
+                <td>@estudio.FechayHora.ToString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

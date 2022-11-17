@@ -12,10 +12,6 @@ D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Con
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\ConsultorioMedico.RazorCoreGenerate.cache
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
-D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\ConsultorioMedico.RazorTargetAssemblyInfo.cache
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\ConsultorioMedico.RazorTargetAssemblyInfo.cs
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\ConsultorioMedico.dll
@@ -75,3 +71,14 @@ D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\bin\Debug\netcoreapp3.1\run
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Medicos\Index.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Estudios\index.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Pacientes\Index.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Medicos\CrearMedico.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Estudios\CrearEstudio.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Pacientes\CrearPaciente.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Pacientes\PacienteIndividual.cshtml.g.cs

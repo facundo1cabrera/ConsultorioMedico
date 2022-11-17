@@ -1,0 +1,25 @@
+﻿@{
+    @model ConsultorioMedico.Models.PacientesViewModel
+}
+<h2 style="margin-bottom: 40px;">Listado de Pacientes</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Fecha de Nacimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var paciente in Model.Pacientes)
+        {
+            <tr>
+                <td>@paciente.Nombre</td>
+                <td>@paciente.Apellido</td>
+                <td>@paciente.DNI</td>
+                <td>@paciente.FechaNacimiento</td>
+            </tr>
+        }
+    </tbody>
+</table>

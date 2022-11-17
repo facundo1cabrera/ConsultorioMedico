@@ -1,0 +1,35 @@
+﻿@{
+    @model ConsultorioMedico.Models.PacienteCreacionDTO
+}
+<h2 style="margin-bottom:40px;">Creá un paciente</h2>
+@using (Html.BeginForm("CrearPaciente", "Pacientes", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control"})
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @style = "color:red;"})
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Apellido)
+                @Html.TextBoxFor(d => d.Apellido, "", new { @class = "form-control"})
+                @Html.ValidationMessageFor(d => d.Apellido, null, new { @style = "color:red;"})
+            </div>
+            <div>
+                @Html.LabelFor(d => d.DNI)
+                @Html.TextBoxFor(d => d.DNI, "", new { @class = "form-control"})
+                @Html.ValidationMessageFor(d => d.DNI, null, new { @style = "color:red;"})
+            </div>
+            <div>
+                @Html.LabelFor(d => d.FechaNacimiento)
+                @Html.TextBoxFor(d => d.FechaNacimiento, "", new { @class = "form-control", @type="date"})
+                @Html.ValidationMessageFor(d => d.FechaNacimiento, null, new { @style = "color:red;"})
+            </div>
+            <br />
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>   
+}

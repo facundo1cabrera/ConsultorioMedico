@@ -7,6 +7,12 @@ namespace ConsultorioMedico
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seeding();
         }
 
         public DbSet<Estudio> Estudios { get; set; }

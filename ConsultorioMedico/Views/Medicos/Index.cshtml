@@ -1,0 +1,23 @@
+﻿@{
+    @model ConsultorioMedico.Models.MedicosViewModel
+}
+<h2 style="margin-bottom: 40px;">Medicos disponibles</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Matricula</th>
+            <th>Especialidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var medico in Model.Medicos)
+        {
+            <tr>
+                <td>@medico.Nombre</td>
+                <td>@medico.Matricula</td>
+                <td>@medico.Especialidad</td>
+            </tr>
+        }
+    </tbody>
+</table>
