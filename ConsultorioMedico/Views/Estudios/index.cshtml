@@ -12,8 +12,8 @@
             <th>Nombre del paciente</th>
             <th>Apellido del paciente</th>
             <th>Resultado</th>
-            
             <th>Fecha y hora</th>
+            <th>Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +25,7 @@
                 <td>@estudio.Paciente.Apellido</td>
                 <td>@estudio.Resultado</td>
                 <td>@estudio.FechayHora.ToString()</td>
+                <td><a href="estudios/editar/@estudio.Id" >Editar</a></td>
             </tr>
         }
     </tbody>

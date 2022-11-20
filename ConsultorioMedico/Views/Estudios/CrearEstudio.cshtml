@@ -1,1 +1,62 @@
-﻿
+﻿@{
+    @model ConsultorioMedico.Models.EstudioCreacionDTO
+}
+<h2 style="margin-bottom:40px;">Creá un Estudio Nuevo</h2>
+@{
+    if (ViewBag.Alerta != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Alerta
+        </div>       
+    }
+}
+@using (Html.BeginForm("CrearEstudio", "Estudios", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control"})
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @style = "color:red;"})
+            </div>
+            <div class="dropdown">
+                @Html.LabelFor(d => d.MedicosAsociados)
+                @Html.DropDownListFor(x => x.MedicosAsociados, (IEnumerable<SelectListItem>)ViewBag.Medicos, new { @multiple = true, @class = "form-control"})
+                @Html.ValidationMessageFor(d => d.MedicosAsociados, null, new { @style = "color:red;"})
+            </div>
+            <div>
+                @Html.LabelFor(d => d.FechayHora)
+                @Html.TextBoxFor(d => d.FechayHora, "", new { @class = "form-control", @type = "datetime-local", @id = "fecha", onchange="validarfecha(e)"})
+                @Html.ValidationMessageFor(d => d.FechayHora, null, new { @style = "color:red;"})
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Resultado)
+                @Html.TextBoxFor(d => d.Resultado, "", new { @class = "form-control", @id = "resultado" })
+                @Html.ValidationMessageFor(d => d.Resultado, null, new { @style = "color:red;"})
+            </div>
+            <div class="dropdown">
+                @Html.LabelFor(d => d.PacienteId)
+                @Html.DropDownListFor(x => x.PacienteId, (IEnumerable<SelectListItem>)ViewBag.Pacientes, new {@class = "form-control"})
+                @Html.ValidationMessageFor(d => d.PacienteId, null, new { @style = "color:red;"})
+            </div>
+            <br />
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>   
+}
+<script>
+    validarfecha(event) {
+        var fecha_input = document.getElementById("fecha").value;
+        if(fecha_input == "" || fecha_input == null || fecha_input == undefined || fecha_input > Date.now()) {
+            var resultado_input = document.getElementById("resultado");
+            resultado_input.value = "Pendiente";
+        }
+    }
+    var fecha_input = document.getElementById("fecha").value;
+        if(fecha_input == "" || fecha_input == null || fecha_input == undefined || fecha_input > Date.now()) {
+            var resultado_input = document.getElementById("resultado");
+            resultado_input.value = "Pendiente";
+        }
+</script>

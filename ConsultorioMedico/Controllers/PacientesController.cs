@@ -28,6 +28,21 @@ namespace ConsultorioMedico.Controllers
             return View(model);
         }
 
+        [Route("editar/{pacienteId:int}")]
+        public async Task<ActionResult> CrearPaciente(int pacienteId)
+        {
+            var paciente = await _context.Paciente.FirstOrDefaultAsync(x => x.Id == pacienteId);
+            var pacienteCreacionDTO = new PacienteCreacionDTO()
+            {
+                DNI = paciente.DNI,
+                Apellido = paciente.Apellido,
+                Nombre = paciente.Nombre,
+                FechaNacimiento = paciente.FechaNacimiento
+            };
+
+            return View(pacienteCreacionDTO);
+        }
+
         [Route("crear")]
         public async Task<ActionResult> CrearPaciente()
         {

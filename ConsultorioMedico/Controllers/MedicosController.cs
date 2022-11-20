@@ -1,7 +1,9 @@
 ﻿using ConsultorioMedico.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ConsultorioMedico.Controllers
@@ -26,6 +28,20 @@ namespace ConsultorioMedico.Controllers
 
             return View(model);
         }
+        [Route("editar/{medicoId:int}")]
+        public async Task<ActionResult> CrearMedico(int medicoId)
+        {
+            var medico = await _context.Medicos.FirstOrDefaultAsync(x => x.Id == medicoId);
+            var medicoCreacionDTO = new MedicoCreacionDTO()
+            {
+                Especialidad = medico.Especialidad,
+                Matricula = medico.Matricula,
+                Nombre = medico.Nombre
+            };
+
+            return View(medicoCreacionDTO);
+        }
+
         [Route("crear")]
         public async Task<ActionResult> CrearMedico()
         {
