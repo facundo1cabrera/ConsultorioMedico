@@ -82,3 +82,4 @@ D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Raz
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Estudios\CrearEstudio.cshtml.g.cs
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Pacientes\CrearPaciente.cshtml.g.cs
 D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Pacientes\PacienteIndividual.cshtml.g.cs
+D:\facu\ort\PNT1\ConsultorioMedico\ConsultorioMedico\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs

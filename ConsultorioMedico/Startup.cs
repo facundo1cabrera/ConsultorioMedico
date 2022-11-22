@@ -27,6 +27,8 @@ namespace ConsultorioMedico
         {
             services.AddControllersWithViews();
 
+            services.AddSession();
+
             services.AddDbContext<ApplicationDbContext>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
@@ -46,6 +48,8 @@ namespace ConsultorioMedico
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
+
 
             app.UseRouting();
 
