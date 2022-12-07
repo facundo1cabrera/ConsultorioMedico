@@ -55,9 +55,77 @@ namespace ConsultorioMedico.Controllers
                 Text = x.Nombre + " " + x.Apellido,
                 Value = x.Id.ToString()
             });
-
+            
             return View(estudioCreacionDTO);
         }
+
+        [Route("editar/{estudioId:int}")]
+        [HttpPost]
+        public async Task<IActionResult> EditarEstudio(int estudioId, EstudioCreacionDTO estudioCreacionDTO)
+        {
+            List<Medico> medicos;
+            List<Paciente> pacientes;
+            if (ModelState.IsValid)
+            {
+                var estudioDB = await _context.Estudios.FirstOrDefaultAsync(x => x.Id == estudioId);
+
+                var estudiosXPaciente = await _context.Estudios.Where(x => x.PacienteId == estudioCreacionDTO.PacienteId).ToListAsync();
+                var fechasEstudiosXPaciente = estudiosXPaciente.Select(x => x.FechayHora);
+                if (fechasEstudiosXPaciente.Contains(estudioCreacionDTO.FechayHora))
+                {
+                    medicos = await _context.Medicos.ToListAsync();
+                    ViewBag.Medicos = medicos.Select(x => new SelectListItem
+                    {
+                        Text = x.Nombre,
+                        Value = x.Id.ToString()
+                    });
+
+                    pacientes = await _context.Paciente.Where(x => x.Id == estudioCreacionDTO.PacienteId).ToListAsync();
+                    ViewBag.Pacientes = pacientes.Select(x => new SelectListItem
+                    {
+                        Text = x.Nombre + " " + x.Apellido,
+                        Value = x.Id.ToString()
+                    });
+                    ViewBag.Alerta = "Este paciente ya tiene un estudio creado en ese horario. Intentá con otro horario";
+                    return View();
+                }
+
+                var medicosEstudios = new List<MedicosEstudios>();
+                foreach (var id in estudioCreacionDTO.MedicosAsociados)
+                {
+                    medicosEstudios.Add(new MedicosEstudios()
+                    {
+                        MedicoId = id
+                    });
+                }
+
+                estudioDB.Nombre = estudioCreacionDTO.Nombre;
+                estudioDB.FechayHora = estudioCreacionDTO.FechayHora;
+                estudioDB.Resultado = estudioCreacionDTO.Resultado;
+                estudioDB.PacienteId = estudioCreacionDTO.PacienteId;
+                estudioDB.MedicosEstudios = medicosEstudios;
+
+                _context.Update(estudioDB);
+                await _context.SaveChangesAsync();
+
+                return Redirect("/estudios");
+            }
+            medicos = await _context.Medicos.ToListAsync();
+            ViewBag.Medicos = medicos.Select(x => new SelectListItem
+            {
+                Text = x.Nombre,
+                Value = x.Id.ToString()
+            });
+
+            pacientes = await _context.Paciente.ToListAsync();
+            ViewBag.Pacientes = pacientes.Select(x => new SelectListItem
+            {
+                Text = x.Nombre + " " + x.Apellido,
+                Value = x.Id.ToString()
+            });
+            return View(estudioCreacionDTO);
+        }
+
         [Route("crear")]
         public async Task<ActionResult> CrearEstudio()
         {
@@ -174,6 +242,15 @@ namespace ConsultorioMedico.Controllers
                 throw new Exception(e.Message);
             }
 
+        }
+
+        [Route("borrar/{estudioId:int}")]
+        public async Task<IActionResult> BorrarEstudio(int estudioId)
+        {
+            var estudioDB = await _context.Estudios.FirstOrDefaultAsync(x => x.Id == estudioId);
+            _context.Estudios.Remove(estudioDB);
+            await _context.SaveChangesAsync();
+            return Redirect("/estudios");
         }
     }
 }

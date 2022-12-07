@@ -29,7 +29,7 @@ namespace ConsultorioMedico.Controllers
             return View(model);
         }
         [Route("editar/{medicoId:int}")]
-        public async Task<ActionResult> CrearMedico(int medicoId)
+        public async Task<ActionResult> EditarMedico(int medicoId)
         {
             var medico = await _context.Medicos.FirstOrDefaultAsync(x => x.Id == medicoId);
             var medicoCreacionDTO = new MedicoCreacionDTO()
@@ -39,6 +39,26 @@ namespace ConsultorioMedico.Controllers
                 Nombre = medico.Nombre
             };
 
+            return View(medicoCreacionDTO);
+        }
+
+        [Route("editar/{medicoId:int}")]
+        [HttpPost]
+        public async Task<IActionResult> EditarEstudio(int medicoId, MedicoCreacionDTO medicoCreacionDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                var medicoDB = await _context.Medicos.FirstOrDefaultAsync(x => x.Id == medicoId);
+
+                medicoDB.Nombre = medicoCreacionDTO.Nombre;
+                medicoDB.Especialidad = medicoCreacionDTO.Especialidad;
+                medicoDB.Matricula = medicoCreacionDTO.Matricula;
+
+                _context.Update(medicoDB);
+                await _context.SaveChangesAsync();
+
+                return Redirect("/medicos");
+            }
             return View(medicoCreacionDTO);
         }
 
@@ -74,7 +94,15 @@ namespace ConsultorioMedico.Controllers
             {
                 throw new Exception(e.Message);
             }
-            
+        }
+
+        [Route("borrar/{medicoId:int}")]
+        public async Task<IActionResult> BorrarMedico(int medicoId)
+        {
+            var medicoDb = await _context.Medicos.FirstOrDefaultAsync(x => x.Id == medicoId);
+            _context.Medicos.Remove(medicoDb);
+            await _context.SaveChangesAsync();
+            return Redirect("/medicos");
         }
     }
 }

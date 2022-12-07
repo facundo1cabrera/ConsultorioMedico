@@ -1,7 +1,7 @@
 ﻿@{
     @model ConsultorioMedico.Models.EstudioCreacionDTO
 }
-<h2 style="margin-bottom:40px;">Creá un Estudio Nuevo</h2>
+<h2 style="margin-bottom:40px;">Editar estudio</h2>
 @{
     if (ViewBag.Alerta != null)
     {
@@ -10,7 +10,7 @@
         </div>       
     }
 }
-@using (Html.BeginForm("CrearEstudio", "Estudios", FormMethod.Post))
+@using (Html.BeginForm("EditarEstudio", "Estudios", FormMethod.Post))
 {
     <div class="row">
         <div class="col-md-12">

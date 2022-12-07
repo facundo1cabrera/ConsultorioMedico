@@ -1,0 +1,31 @@
+﻿@{
+    @model ConsultorioMedico.Models.MedicoCreacionDTO
+}
+<h2 style="margin-bottom:40px;">Creá un Medico</h2>
+@using (Html.BeginForm("EditarMedico", "Medicos", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control"})
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @style = "color:red;"})
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Especialidad)
+                @Html.TextBoxFor(d => d.Especialidad, "", new { @class = "form-control"})
+                @Html.ValidationMessageFor(d => d.Especialidad, null, new { @style = "color:red;"})
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Matricula)
+                @Html.TextBoxFor(d => d.Matricula, "", new { @class = "form-control"})
+                @Html.ValidationMessageFor(d => d.Matricula, null, new { @style = "color:red;"})
+            </div>
+            <br />
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>   
+}
+<a class="btn btn-primary" role="button" href="/medicos">Volver</a>

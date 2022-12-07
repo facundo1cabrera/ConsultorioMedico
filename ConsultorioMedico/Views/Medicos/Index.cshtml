@@ -9,6 +9,7 @@
             <th>Matricula</th>
             <th>Especialidad</th>
             <th>Editar</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
                 <td>@medico.Matricula</td>
                 <td>@medico.Especialidad</td>
                 <td><a href="medicos/editar/@medico.Id">Editar</a></td>
+                <td><a style="color:red;" href="medicos/borrar/@medico.Id">Borrar</a></td>
             </tr>
         }
     </tbody>
